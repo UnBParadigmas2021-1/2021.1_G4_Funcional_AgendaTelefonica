@@ -1,0 +1,65 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 55362080081c6a42fb18a70a185ed3a32ad4eaddc931bd9131e47aee751ff257
+
+name:           agenda
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/agenda#readme>
+homepage:       https://github.com/githubuser/agenda#readme
+bug-reports:    https://github.com/githubuser/agenda/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2021 Author name here
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/agenda
+
+library
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_agenda
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , twilio
+    , tranformers
+    , smtp-mail
+  default-language: Haskell2010
+
+executable agenda-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_agenda
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      agenda
+    , base >=4.7 && <5
+  default-language: Haskell2010
+
+test-suite agenda-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_agenda
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      agenda
+    , base >=4.7 && <5
+  default-language: Haskell2010
