@@ -1,6 +1,6 @@
-module Main where
+module Main (main) where
 
 import Data.List as List
-import Sms
+-- import Sms
 import Email
 import Menu

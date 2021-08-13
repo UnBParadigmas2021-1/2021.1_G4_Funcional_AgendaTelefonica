@@ -13,4 +13,7 @@ html       = htmlPart "<h1>HTML</h1>"
 
 mail = simpleMail from to cc bcc subject [body, html]
 
-main = sendMailWithLogin host user pass mail
+host = "172.18.0.1"
+
+main = sendMail host mail
+
