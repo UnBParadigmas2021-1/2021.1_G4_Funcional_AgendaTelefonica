@@ -39,8 +39,8 @@ imprimaLista = do
     arquivo <- readFile "Compromisso.txt"
     print $imprimi "" $lines arquivo
     
-imprimi :: String -> String -> String
-imprimi name (contato:numero:email:others)| contato /= name = (contato, numero, email):imprimi name others
+imprimi :: String -> [String] -> [[String]]
+imprimi name (contato:numero:email:others)| contato /= name = [contato, numero, email]:imprimi name others
                                              | otherwise = imprimi name others -- a different director, scan the rest of the file
 imprimi _ _ = [] -- when there's no more records
  -----------------------------------------------------------------------------------------------------------------------------------------
@@ -51,12 +51,12 @@ procurarContato = do
     putStrLn "digite o nome do contato"
     name <- getLine
     base <- readFile "Compromisso.txt"     -- base is the whole file contents as a single string
-    print $search name $lines base
+    print $busca name $lines base
 
-search :: String -> [String] -> [[String]]
-search name (contato:numero:email:others)| contato == name = [contato, numero, email]:search name others
-                                             | otherwise = search name others -- a different director, scan the rest of the file
-search _ _ = [] -- when there's no more records
+busca :: String -> [String] -> [[String]]
+busca name (contato:numero:email:others)| contato == name = [contato, numero, email]:busca name others
+                                             | otherwise = busca name others -- a different director, scan the rest of the file
+busca _ _ = [] -- when there's no more records
  -----------------------------------------------------------------------------------------------------------------------------------------
 {--
 --EXCLUI UM CONTATO
@@ -66,24 +66,26 @@ excluirContato = do
     name <- getLine
     base <- readFile "Compromisso.txt"     -- base is the whole file contents as a single string
     print $exclui name $lines base
-    arquivo <- openFile "Lixo.txt" AppendMode
-    asd <- exclui name $lines base
-    hPutStr arquivo asd
-    hPutStr arquivo "\n"
-    hFlush arquivo
-    hClose arquivo
-    
     
 
 exclui :: String -> [String] -> [[String]]
-exclui name (contato:numero:email:others)| contato /= name = [contato, numero, email]:exclui name others
-                                             | otherwise = exclui name others -- a different director, scan the rest of the file
+exclui name (contato:numero:email:others)
+ | contato /= name = arquivo <- openFile "Lixo.txt" AppendMode
+  hPutStr arquivo contato
+  hPutStr arquivo "\n"
+  hPutStr arquivo numero
+  hPutStr arquivo "\n"
+  hPutStr arquivo email
+  hPutStr arquivo "\n"
+  hFlush arquivo
+  hClose arquivo
+  [contato, numero, email]:exclui name others
+ | otherwise = exclui name others -- a different director, scan the rest of the file
 exclui _ _ = [] -- when there's no more records
  -----------------------------------------------------------------------------------------------------------------------------------------
 
 
 --}
-
 
 
 
