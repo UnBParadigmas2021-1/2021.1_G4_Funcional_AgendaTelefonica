@@ -1,15 +1,10 @@
-module Work where  
+module Agenda where  
+
 import System.IO
 import System.Directory  
 import Data.List
 import Control.Monad
- {--
-main = do
- putStr("Digite o que gostaria de fazer?\n")
- putStr("adicionar\n")
- putStr("remover\n")
- putStr("imprimirLista\n")
---}
+
  -----------------------------------------------------------------------------------------------------------------------------------------
 
 --ADICIONAR UM NOVO CONTATO
@@ -43,6 +38,12 @@ imprimi :: String -> [String] -> [[String]]
 imprimi name (contato:numero:email:others)| contato /= name = [contato, numero, email]:imprimi name others
                                              | otherwise = imprimi name others -- a different director, scan the rest of the file
 imprimi _ _ = [] -- when there's no more records
+
+{--f :: [[String]] -> [String]
+f xs = do 
+         x <- xs
+         return $ show x--}
+
  -----------------------------------------------------------------------------------------------------------------------------------------
  
 --PROCURAR UM CONTATO
