@@ -1,12 +1,12 @@
-module Menu (menu) where
+module Main where
 
 import System.IO
 import Data.Char  
 import Control.Monad
 import Agenda
 
-menu :: IO()
-menu = do { putStrLn "Menu Principal da Agenda: ";
+main :: IO()
+main = do { putStrLn "Menu Principal da Agenda: ";
         putStrLn "1 - Cadastrar um novo contato";
         putStrLn "2 - Achar um contato";
         putStrLn "3 - Listar todos os contatos";
