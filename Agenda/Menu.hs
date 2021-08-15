@@ -33,6 +33,7 @@ adicionar = do
         email <- getLine
         adicionarContato nome numero email
         putStr("Adicionado com sucesso\n")
+        menu
 
 -----------------------------------------------------------------------------------------------------------------------------------------
 imprimaLista :: IO()

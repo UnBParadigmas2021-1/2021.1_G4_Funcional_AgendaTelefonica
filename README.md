@@ -1,51 +1,56 @@
-# RepositorioTemplate
-Esse repositório é para ser utilizado pelos grupos como um template inicial, da home page do Projeto.
-
-**!! *Atenção: Renomeie o seu repositório para (Ano.Semestre)_(Grupo)_(Paradigma)_(NomeDoProjeto)*. !!** 
-
-Paradigmas:
- - Funcional
- - Logico
- - SMA
-
-**!! *Não coloque os nomes dos alunos no título do repositório*. !!**
-
-**!! *Exemplo de título correto: 2021.1_G1_Logico_ProjetoRoteirosAereos*. !!**
- 
- (Apague essa seção)
-
-# NomeDoProjeto
+# Agenda Telefônica
 
 **Disciplina**: FGA0210 - PARADIGMAS DE PROGRAMAÇÃO - T01 <br>
-**Nro do Grupo**: XX<br>
-**Paradigma**: XXXXXXXXXX<br>
+**Nro do Grupo**: 04<br>
+**Paradigma**: Funcional<br>
 
 ## Alunos
-|Matrícula | Aluno |
-| -- | -- |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
 
-## Sobre 
-Descreva o seu projeto em linhas gerais. 
+| Matrícula  | Aluno                          |
+| ---------- | ------------------------------ |
+| 17/0103200 | Gabriel Alves Hussein          |
+| 17/0011119 | Geraldo Victor Alves Barbosa   |
+| 18/0102613 | Ítalo Fernandes Sales de Serra |
+| 18/0103431 | João Victor Valadão de Brito   |
+| 18/0020251 | João VItor Lopes de Farias     |
+
+## Sobre
+
+Consiste em uma agenda telefônica para registro de contatos, com nome, telefone e e-mail. Alguns das funcionalidades incluem:
+
+- Cadastrar novo contato
+- Buscar por contato
+- Listar todos os contatos
+- Enviar email para determinado contato
 
 ## Screenshots
+
 Adicione 2 ou mais screenshots do projeto em termos de interface e/ou funcionamento.
 
-## Instalação 
-**Linguagens**: xxxxxx<br>
-**Tecnologias**: xxxxxx<br>
-Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
-Insira um manual ou um script para auxiliar ainda mais.
+## Instalação
 
-## Uso 
-Explique como usar seu projeto, caso haja algum passo a passo após o comando de execução.
+**Linguagens**: Haskell<br>
+**Tecnologias**: Cabal<br>
+Para instalar as dependências é necessário ter o cabal instalado, caso contrário, siga o tutorial [aqui](https://cabal.readthedocs.io/en/3.4/getting-started.html).
+
+Para verificar se o cabal foi instalado rode o comando:
+
+```
+cabal --version
+```
+
+## Uso
+
+Seguir as intruções do menu.
 
 ## Vídeo
+
 Adicione 1 ou mais vídeos com a execução do projeto.
 
-## Outros 
-Quaisquer outras informações sobre seu projeto podem ser descritas a seguir.
+## Outros
+
+O programa não funcionará corretamente caso o nome dos arquivos e/ou o local deles sejam alterados.
 
 ## Fontes
+
 Caso utilize materiais de terceiros, referencie-os adequadamente.

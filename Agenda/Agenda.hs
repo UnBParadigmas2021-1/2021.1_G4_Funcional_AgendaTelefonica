@@ -12,7 +12,7 @@ import Control.Monad
 
 adicionarContato :: String -> String -> String -> IO ()
 adicionarContato nome numero email = do
- arquivo <- openFile "Compromisso.txt" AppendMode
+ arquivo <- openFile "Contatos.txt" AppendMode
  hPutStr arquivo nome
  hPutStr arquivo "\n"
  hPutStr arquivo numero
