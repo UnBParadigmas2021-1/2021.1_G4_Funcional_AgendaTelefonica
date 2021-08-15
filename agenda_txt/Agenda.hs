@@ -5,37 +5,28 @@ import System.Directory
 import Data.List
 import Control.Monad
 
+
  -----------------------------------------------------------------------------------------------------------------------------------------
 
 --ADICIONAR UM NOVO CONTATO
-adicionar :: IO()
-adicionar = do
- putStr("Escreva o nome\n")
- linha <- getLine
+
+adicionarContato :: String -> String -> String -> IO ()
+adicionarContato nome numero email = do
  arquivo <- openFile "Compromisso.txt" AppendMode
- hPutStr arquivo linha
+ hPutStr arquivo nome
  hPutStr arquivo "\n"
- putStr("Escreva o numero\n")
- linha1 <- getLine
- hPutStr arquivo linha1
+ hPutStr arquivo numero
  hPutStr arquivo "\n"
- putStr("Escreva o email\n")
- linha2 <- getLine
- hPutStr arquivo linha2
+ hPutStr arquivo email
  hPutStr arquivo "\n"
- putStr("Adicionado com sucesso\n")
  hFlush arquivo
  hClose arquivo
  -----------------------------------------------------------------------------------------------------------------------------------------
  
  -- IMRIPIR TODA LISTA DE CONTATOS
-imprimaLista :: IO()
-imprimaLista = do
-    arquivo <- readFile "Compromisso.txt"
-    print $imprimi "" $lines arquivo
-    
+   
 imprimi :: String -> [String] -> [[String]]
-imprimi name (contato:numero:email:others)| contato /= name = [contato, numero, email]:imprimi name others
+imprimi name (contato:numero:email:others)| contato /= name = [contato, numero, email] :imprimi name others
                                              | otherwise = imprimi name others -- a different director, scan the rest of the file
 imprimi _ _ = [] -- when there's no more records
 
@@ -47,12 +38,6 @@ f xs = do
  -----------------------------------------------------------------------------------------------------------------------------------------
  
 --PROCURAR UM CONTATO
-procurarContato :: IO()
-procurarContato = do
-    putStrLn "digite o nome do contato"
-    name <- getLine
-    base <- readFile "Compromisso.txt"     -- base is the whole file contents as a single string
-    print $busca name $lines base
 
 busca :: String -> [String] -> [[String]]
 busca name (contato:numero:email:others)| contato == name = [contato, numero, email]:busca name others
@@ -61,13 +46,6 @@ busca _ _ = [] -- when there's no more records
  -----------------------------------------------------------------------------------------------------------------------------------------
 {--
 --EXCLUI UM CONTATO
-excluirContato :: IO()
-excluirContato = do
-    putStrLn "digite o nome do contato que sera excluido"
-    name <- getLine
-    base <- readFile "Compromisso.txt"     -- base is the whole file contents as a single string
-    print $exclui name $lines base
-    
 
 exclui :: String -> [String] -> [[String]]
 exclui name (contato:numero:email:others)
@@ -87,6 +65,7 @@ exclui _ _ = [] -- when there's no more records
 
 
 --}
+
 
 
 
