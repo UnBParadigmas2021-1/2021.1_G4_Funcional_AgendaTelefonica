@@ -12,7 +12,7 @@ import Control.Monad
 
 adicionarContato :: String -> String -> String -> IO ()
 adicionarContato nome numero email = do
- arquivo <- openFile "Contatos.txt" AppendMode
+ arquivo <- openFile "teste.txt" AppendMode  --Contatos.txt
  hPutStr arquivo nome
  hPutStr arquivo "\n"
  hPutStr arquivo numero
@@ -61,12 +61,24 @@ exclui name (contato:numero:email:others)
   [contato, numero, email]:exclui name others
  | otherwise = exclui name others -- a different director, scan the rest of the file
 exclui _ _ = [] -- when there's no more records
- -----------------------------------------------------------------------------------------------------------------------------------------
-
-
 --}
 
+removeItem _ []                 = []
+removeItem x (contato:numero:email:others) | x == contato    = removeItem x others
+                                           | otherwise =  (contato:numero:email:others) : removeItem x others
+                                           
+ -----------------------------------------------------------------------------------------------------------------------------------------
 
+-- BUSCA EMAIL DE CONTATO
+
+buscaEmail :: String -> [String] -> String
+buscaEmail name (contato:numero:email:others)| contato == name = email
+                                             | otherwise = buscaEmail name others -- a different director, scan the rest of the file
+buscaEmail _ _ = "" -- when there's no more records
+
+atualizaContatos :: String -> [String] -> [[String]]
+atualizaContatos (contato:numero:email:others) | others /= [] = adicionarContato contato numero email
+                                               | otherwise = atualizaContatos others
 
 
 
