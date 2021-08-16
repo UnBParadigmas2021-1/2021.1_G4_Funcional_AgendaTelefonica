@@ -59,7 +59,7 @@ excluirContato = do
     let a = removeItem name $lines base
     putStrLn (show a)
     writeFile "teste.txt" ""
-    atualizaContatos
+    -- atualizaContatos
     menu
 
 -----------------------------------------------------------------------------------------------------------------------------------------
