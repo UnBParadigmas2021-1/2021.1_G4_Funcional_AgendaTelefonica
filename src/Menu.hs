@@ -4,6 +4,7 @@ import System.IO
 import Data.Char  
 import Control.Monad
 import Agenda
+import Email
 
 menu :: IO()
 menu = do { putStrLn "Menu Principal da Agenda: ";
@@ -74,13 +75,7 @@ menuEmail = do
     menu
 
 -----------------------------------------------------------------------------------------------------------------------------------------
-enviarEmail :: IO()
+enviarEmail :: IO ()
 enviarEmail = do
-    putStrLn "Digite o nome do contato"
-    name <- getLine
-    putStrLn "Digite a mensagem"
-    mensagem <-getLine
-    base <- readFile "Contatos.txt"     -- base is the whole file contents as a single string
-    let emailContato = buscaEmail name $lines base
-    -- email emailContato mensagem
-    menu
+                email
+                menu

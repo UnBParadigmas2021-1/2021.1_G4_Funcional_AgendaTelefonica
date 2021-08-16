@@ -4,9 +4,13 @@ module Email where
 import Control.Monad (when)
 import Control.Exception (bracket)
 import Network.HaskellNet.SMTP.SSL
+import EmailContato 
+import AssuntoEmail
+import CorpoEmail
+import Agenda
 
 email :: IO ()
-email emailContato assunto mensagem = bracket
+email = bracket
          (connectSMTPSSL "smtp.gmail.com")
          closeSMTP $ \conn ->
            do success <- authenticate LOGIN
@@ -14,4 +18,4 @@ email emailContato assunto mensagem = bracket
                                       "unb12345#"
                                       conn
               when success
-                   $ sendPlainTextMail emailContato "paradigmasagenda@gmail.com" assunto mensagem conn
+                   $ sendPlainTextMail corpoEmail "paradigmasagenda@gmail.com" assuntoEmail corpoEmail conn
