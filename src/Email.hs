@@ -18,5 +18,4 @@ email = bracket
                                       "unb12345#"
                                       conn
               when success
-                   $ sendPlainTextMail corpoEmail "paradigmasagenda@gmail.com" assuntoEmail corpoEmail conn
---}
+                   $ sendPlainTextMail "geraldov932@gmail.com" "paradigmasagenda@gmail.com" "assuntoEmail" "corpoEmail" conn
