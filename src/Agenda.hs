@@ -4,15 +4,13 @@ import System.IO
 import System.Directory  
 import Data.List
 import Control.Monad
-
-
  -----------------------------------------------------------------------------------------------------------------------------------------
 
---ADICIONAR UM NOVO CONTATO
+-- ADICIONAR UM NOVO CONTATO
 
 adicionarContato :: String -> String -> String -> IO ()
 adicionarContato nome numero email = do
- arquivo <- openFile "Contatos.txt" AppendMode 
+ arquivo <- openFile "Contatos.txt" AppendMode
  hPutStr arquivo nome
  hPutStr arquivo "\n"
  hPutStr arquivo numero
@@ -27,8 +25,8 @@ adicionarContato nome numero email = do
    
 imprimi :: String -> [String] -> [[String]]
 imprimi name (contato:numero:email:others)| contato /= name = [contato, numero, email] :imprimi name others
-                                             | otherwise = imprimi name others -- a different director, scan the rest of the file
-imprimi _ _ = [] -- when there's no more records
+                                             | otherwise = imprimi name others 
+imprimi _ _ = [] 
 
 {--f :: [[String]] -> [String]
 f xs = do 
@@ -41,12 +39,13 @@ f xs = do
 
 busca :: String -> [String] -> [[String]]
 busca name (contato:numero:email:others)| contato == name = [contato, numero, email]:busca name others
-                                             | otherwise = busca name others -- a different director, scan the rest of the file
-busca _ _ = [] -- when there's no more records
+                                             | otherwise = busca name others
+busca _ _ = []
  -----------------------------------------------------------------------------------------------------------------------------------------
-{--
---EXCLUI UM CONTATO
 
+--EXCLUIR CONTATO
+
+{--
 exclui :: String -> [String] -> [[String]]
 exclui name (contato:numero:email:others)
  | contato /= name = arquivo <- openFile "Lixo.txt" AppendMode
@@ -63,22 +62,26 @@ exclui name (contato:numero:email:others)
 exclui _ _ = [] -- when there's no more records
 --}
 
-removeItem _ []                 = []
-removeItem x (contato:numero:email:others) | x == contato    = removeItem x others
-                                           | otherwise =  (contato:numero:email:others) : removeItem x others
+removeContato _ []                 = []
+removeContato x (contato:numero:email:others) | x == contato    = removeContato x others
+                                              | otherwise =  (contato, numero, email) : removeContato x others
                                            
- -----------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------
 
 -- BUSCA EMAIL DE CONTATO
 
 buscaEmail :: String -> [String] -> String
 buscaEmail name (contato:numero:email:others)| contato == name = email
-                                             | otherwise = buscaEmail name others -- a different director, scan the rest of the file
-buscaEmail _ _ = "" -- when there's no more records
+                                             | otherwise = buscaEmail name others
+buscaEmail _ _ = ""
+-----------------------------------------------------------------------------------------------------------------------------------------
 
--- atualizaContatos :: String -> [String] -> [[String]]
--- atualizaContatos (contato:numero:email:others) | others /= [] = adicionarContato contato numero email
---                                               | otherwise = atualizaContatos others
+-- ATUALIZA LISTA DE CONTATOS
 
+atualizaContatos :: [(String, String, String)] -> IO()
+atualizaContatos [] = return ()
+atualizaContatos ((contato, numero, email):others) = do
+        adicionarContato contato numero email
+        atualizaContatos others
 
 

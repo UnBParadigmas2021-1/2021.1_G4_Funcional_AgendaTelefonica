@@ -8,7 +8,7 @@ import EmailContato
 import AssuntoEmail
 import CorpoEmail
 import Agenda
-
+{-- 
 email :: IO ()
 email = bracket
          (connectSMTPSSL "smtp.gmail.com")
@@ -19,3 +19,4 @@ email = bracket
                                       conn
               when success
                    $ sendPlainTextMail corpoEmail "paradigmasagenda@gmail.com" assuntoEmail corpoEmail conn
+--}
