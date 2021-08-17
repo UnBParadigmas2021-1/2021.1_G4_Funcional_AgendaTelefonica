@@ -64,7 +64,7 @@ Seguir as intruções do menu.
 ## Vídeo
 Um vídeo foi gravado demonstrando algumas partes do projeto pelos membros do grupo, o mesmo pode ser assistido abaixo:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/NCiFX79jX50" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Vídeo do projeto](https://img.youtube.com/vi/NCiFX79jX50/0.jpg)](https://www.youtube.com/watch?v=NCiFX79jX50)
 
 ## Outros
 
