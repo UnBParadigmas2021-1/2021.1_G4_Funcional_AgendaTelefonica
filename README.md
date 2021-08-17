@@ -31,13 +31,25 @@ Adicione 2 ou mais screenshots do projeto em termos de interface e/ou funcioname
 
 **Linguagens**: Haskell<br>
 **Tecnologias**: Cabal<br>
-Para instalar as dependências é necessário ter o cabal instalado, caso contrário, siga o tutorial [aqui](https://cabal.readthedocs.io/en/3.4/getting-started.html).
 
-Para verificar se o cabal foi instalado rode o comando:
+## Instalação 
 
-```
-cabal --version
-```
+De modo a agilizar a instalação do Cabal recomendamos o uso do ```ghcup```, que já instala o ```ghc``` e ```cabal```.
+Para instalar usando o ```curl``` execute no terminal o seguinte comando:
+
+```curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh```
+
+Em seguida para instalar o ```cabal-install``` rode o comando:
+
+```ghcup install cabal && cabal-update```
+
+Essa instalação permite o uso dos comandos cabal new-* que servem para instalar as dependências sem a necessidade de instalar localmente. 
+
+## Execução
+
+Após as instalações necessárias para rodar o projeto execute o seguinte comando na raiz do projeto:
+
+```cabal run```
 
 ## Uso
 
