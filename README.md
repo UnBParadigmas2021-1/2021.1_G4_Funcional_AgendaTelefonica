@@ -21,7 +21,7 @@ Consiste em uma agenda telefônica para registro de contatos, com nome, telefone
 - Cadastrar novo contato
 - Buscar por contato
 - Listar todos os contatos
-- Enviar email para determinado contato
+- Enviar email para determinado contato (Funcionalidade não completamente implementada)
 
 ## Screenshots
 
@@ -62,13 +62,14 @@ Após as instalações necessárias para rodar o projeto execute o seguinte coma
 Seguir as intruções do menu.
 
 ## Vídeo
+Um vídeo foi gravado demonstrando algumas partes do projeto pelos membros do grupo, o mesmo pode ser assistido abaixo:
 
-Adicione 1 ou mais vídeos com a execução do projeto.
+<iframe width="560" height="315" src="https://www.youtube.com/embed/NCiFX79jX50" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Outros
 
-O programa não funcionará corretamente caso o nome dos arquivos e/ou o local deles sejam alterados.
+O programa não funcionará corretamente caso o nome dos arquivos e/ou o local deles sejam alterados, ou caso as instruções de instalação não sejam seguidas. A funcionalidade de e-mail como apontada no vídeo foi inserida de forma hard-coded, não houve implementação parametrizada.
 
 ## Fontes
 
-Caso utilize materiais de terceiros, referencie-os adequadamente.
+[Hackage!](https://hackage.haskell.org)</br>
